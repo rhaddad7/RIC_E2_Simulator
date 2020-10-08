@@ -8,7 +8,10 @@ metadata:
 spec:
   containers:
     - name: ricsim
-      image: quay.io/skonish/ran_sim 
+      image: quay.io/skonish/ran_sim
+      env:
+      - name: E2SIM_DIR
+        value: "/playpen/previous"
       command: ["/bin/sh"]
-      args: ["-c", "export E2SIM_DIR=/playpen/previous;yum install -y net-tools iputils;while true; do sleep 30; done;"]
+      args: ["-c", "yum install -y net-tools iputils;while true; do sleep 30; done;"]
       
